@@ -1,0 +1,14 @@
+build
+obj
+Logs
+Temp
+Library
+UserSettings
+Packages/*
+!Packages/manifest.json
+!Packages/packages-lock.json
+
+Assets/InitTestScene*.unity*
+
+*.dat
+
