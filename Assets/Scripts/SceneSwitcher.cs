@@ -3,17 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher
 {
-    private string previousSceneName;
+    private Scenes previousScene;
 
-    public IEnumerator LoadSceneAsync(string sceneName, LoadSceneMode mode)
+    public IEnumerator LoadSceneAsync(Scenes scene, LoadSceneMode mode)
     {
-        previousSceneName = SceneManager.GetActiveScene().name;
+        previousScene = System.Enum.Parse<Scenes>(SceneManager.GetActiveScene().name);
 
-        yield return SceneManager.LoadSceneAsync(sceneName, mode);
+        yield return SceneManager.LoadSceneAsync(scene.ToString(), mode);
     }
 
     public IEnumerator LoadPreviousSceneAsync()
     {
-        yield return SceneManager.LoadSceneAsync(previousSceneName, LoadSceneMode.Single);
+        yield return SceneManager.LoadSceneAsync(previousScene.ToString(), LoadSceneMode.Single);
     }
 }
