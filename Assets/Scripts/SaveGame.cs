@@ -14,19 +14,28 @@ public class SaveGame : MonoBehaviour
 
     public void Save()
     {
-        var cachedEntries = cache.GetAllCacheEntries();
-        var allStateEntries = FindObjectsOfType<MonoBehaviour>()
-            .OfType<IPreserveState>()
-            .Select(instance => new KeyValuePair<string, object>(instance.ObjectId, instance.GetState()))
-            .Union(cachedEntries)
-            .ToDictionary(entry => entry.Key, entry => entry.Value);
-
         var data = new SaveData
         {
             sceneName = SceneManager.GetActiveScene().name,
-            data = allStateEntries
+            data = CollectAllStateEntries()
         };
 
         writer.Write(data);
+    }
+
+    private Dictionary<string, object> CollectAllStateEntries()
+    {
+        var cachedEntries = cache.GetAllCacheEntries();
+        var activeInstances = FindObjectsOfType<MonoBehaviour>()
+            .OfType<IPreserveState>();
+
+        var allStateEntries = new Dictionary<string, object>(cachedEntries);
+        foreach (var instance in activeInstances)
+        {
+            // Make sure we overwrite any cached state with the latest active state
+            allStateEntries[instance.ObjectId] = instance.GetState();
+        }
+
+        return allStateEntries;
     }
 }
