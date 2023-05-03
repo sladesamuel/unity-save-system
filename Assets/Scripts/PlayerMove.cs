@@ -2,7 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class PlayerMove : MonoBehaviour
+public struct PlayerState
+{
+    public Vector3 position;
+}
+
+public class PlayerMove : MonoBehaviour, ICacheable<PlayerState>
 {
     private const float Speed = 3f;
 
@@ -11,25 +16,19 @@ public class PlayerMove : MonoBehaviour
     [Inject]
     public StateCache stateCache;
 
-    void Awake()
-    {
-        var position = stateCache.Get("Player");
-        if (position != null)
-        {
-            Debug.Log("PlayerMove.Awake(): Get position");
-            playerPositionText.text = ((Vector3)position).ToString();
-        }
-        else
-        {
-            Debug.Log("No state found");
-        }
-    }
+    string ICacheable<PlayerState>.ObjectId => name;
 
-    void OnDestroy()
-    {
-        Debug.Log("PlayerMove.OnDestroy(): Store position");
-        stateCache.Store("Player", transform.position);
-    }
+    PlayerState ICacheable<PlayerState>.GetState() =>
+        new PlayerState
+        {
+            position = transform.position
+        };
+
+    void ICacheable<PlayerState>.LoadState(PlayerState state) =>
+        transform.position = state.position;
+
+    void Awake() => stateCache.Load(this);
+    void OnDestroy() => stateCache.Store(this);
 
     void Update()
     {
@@ -38,6 +37,6 @@ public class PlayerMove : MonoBehaviour
 
         transform.position += new Vector3(horizontal, vertical, 0f) * Time.deltaTime * Speed;
 
-        // playerPositionText.text = transform.position.ToString();
+        playerPositionText.text = transform.position.ToString();
     }
 }

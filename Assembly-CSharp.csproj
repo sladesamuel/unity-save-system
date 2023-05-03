@@ -43,6 +43,7 @@
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
      <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
      <Compile Include="Assets/Scripts/StateCache.cs" />
+     <Compile Include="Assets/Scripts/ICacheable.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

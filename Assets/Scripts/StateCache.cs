@@ -6,16 +6,16 @@ public class StateCache
     private readonly Dictionary<string, object> cache =
         new Dictionary<string, object>(StringComparer.Ordinal);
 
-    public StateCache()
+    public void Store<TState>(ICacheable<TState> instance)
     {
-        UnityEngine.Debug.Log("StateCache.ctor()");
+        cache[instance.ObjectId] = instance.GetState();
     }
 
-    public object Get(string key)
+    public void Load<TState>(ICacheable<TState> instance)
     {
-        cache.TryGetValue(key, out object value);
-        return value;
+        if (cache.TryGetValue(instance.ObjectId, out object state))
+        {
+            instance.LoadState((TState)state);
+        }
     }
-
-    public void Store(string key, object value) => cache[key] = value;
 }
