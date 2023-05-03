@@ -8,5 +8,6 @@ public class BindingsInstaller : MonoInstaller
         Container.Bind<StateCache>().AsSingle();
         Container.Bind<SceneSwitcher>().AsSingle();
         Container.Bind<SaveDataWriter>().AsTransient();
+        Container.Bind<SaveDataReader>().AsTransient();
     }
 }

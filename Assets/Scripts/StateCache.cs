@@ -9,6 +9,16 @@ public class StateCache
 
     public IReadOnlyCollection<KeyValuePair<string, object>> GetAllCacheEntries() => cache.ToArray();
 
+    public void PreloadCache(IEnumerable<KeyValuePair<string, object>> entries)
+    {
+        cache.Clear();
+
+        foreach (var entry in entries)
+        {
+            cache.Add(entry.Key, entry.Value);
+        }
+    }
+
     public void Store(IPreserveState instance)
     {
         cache[instance.ObjectId] = instance.GetState();
