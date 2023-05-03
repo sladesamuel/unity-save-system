@@ -36,20 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/EditorStaticInstaller.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/RunnableContextEditor.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/UnityInspectorListEditor.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Editor/SceneParentLoading/SceneParentAutomaticLoader.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ZenUnityEditorUtil.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/GameObjectContextEditor.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/RunnableContextEditor.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ZenMenuItems.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/ProjectContextEditor.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/SceneParentLoading/DefaultSceneContractConfig.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/SceneDecoratorContextEditor.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ObjectGraphVisualizer.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/EditorStaticInstaller.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Editor/UnityInspectorListEditor.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Editor/EditorWindow/ZenjectEditorWindow.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/SceneContextEditor.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/ContextEditor.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/ProjectContextEditor.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ZenMenuItems.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/SceneParentLoading/DefaultSceneContractConfig.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ObjectGraphVisualizer.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/GameObjectContextEditor.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/Editors/SceneDecoratorContextEditor.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Editor/ZenUnityEditorUtil.cs" />
      <None Include="Assets/Plugins/Zenject/Source/Editor/Zenject-Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -306,6 +306,9 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+        <HintPath>/home/samuelslade/source/misc/unity-save-system/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.collab-proxy@1.17.7/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -347,9 +350,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject-usage">
-        <HintPath>/home/samuelslade/source/misc/unity-save-system/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>

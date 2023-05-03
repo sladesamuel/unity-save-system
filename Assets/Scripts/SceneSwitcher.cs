@@ -5,11 +5,11 @@ public class SceneSwitcher
 {
     private Scenes previousScene;
 
-    public IEnumerator LoadSceneAsync(Scenes scene, LoadSceneMode mode)
+    public IEnumerator LoadSceneAsync(Scenes scene)
     {
         previousScene = System.Enum.Parse<Scenes>(SceneManager.GetActiveScene().name);
 
-        yield return SceneManager.LoadSceneAsync(scene.ToString(), mode);
+        yield return SceneManager.LoadSceneAsync(scene.ToString());
     }
 
     public IEnumerator LoadPreviousSceneAsync()

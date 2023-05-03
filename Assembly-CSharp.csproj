@@ -36,15 +36,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
+     <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
      <Compile Include="Assets/Scripts/StartPoint.cs" />
+     <Compile Include="Assets/Scripts/ICacheable.cs" />
      <Compile Include="Assets/Scripts/PlayerMove.cs" />
+     <Compile Include="Assets/Scripts/StateCache.cs" />
      <Compile Include="Assets/Scripts/Scenes.cs" />
      <Compile Include="Assets/Scripts/FollowTarget.cs" />
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
-     <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
-     <Compile Include="Assets/Scripts/StateCache.cs" />
-     <Compile Include="Assets/Scripts/ICacheable.cs" />
-     <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
+     <Compile Include="Assets/Scripts/ResumeGame.cs" />
+     <Compile Include="Assets/Scripts/PauseGame.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -288,6 +290,9 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+        <HintPath>/home/samuelslade/source/misc/unity-save-system/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -308,9 +313,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject-usage">
-        <HintPath>/home/samuelslade/source/misc/unity-save-system/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -738,9 +740,6 @@
     <Reference Include="Unity.2D.Psdimporter.Editor">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -758,6 +757,9 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+        <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
