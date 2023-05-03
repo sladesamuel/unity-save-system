@@ -41,6 +41,8 @@
      <Compile Include="Assets/Scripts/Scenes.cs" />
      <Compile Include="Assets/Scripts/FollowTarget.cs" />
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
+     <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
+     <Compile Include="Assets/Scripts/StateCache.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -304,6 +306,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject-usage">
+        <HintPath>/home/samuelslade/source/misc/unity-save-system/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -805,6 +810,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{06763d79-e9c2-7562-0d6b-e36ad82a49e4}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{873005e3-6bef-3eee-77d7-04f7fd057b6d}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
