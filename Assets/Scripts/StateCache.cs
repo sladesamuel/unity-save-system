@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class StateCache
 {
     private readonly Dictionary<string, object> cache =
         new Dictionary<string, object>(StringComparer.Ordinal);
+
+    public IReadOnlyCollection<KeyValuePair<string, object>> GetAllCacheEntries() => cache.ToArray();
 
     public void Store(IPreserveState instance)
     {

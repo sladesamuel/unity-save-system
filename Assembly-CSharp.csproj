@@ -38,16 +38,20 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
      <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
+     <Compile Include="Assets/Scripts/PreserveState.cs" />
+     <Compile Include="Assets/Scripts/SaveData.cs" />
+     <Compile Include="Assets/Scripts/ResumeGame.cs" />
      <Compile Include="Assets/Scripts/StartPoint.cs" />
+     <Compile Include="Assets/Scripts/PauseGame.cs" />
      <Compile Include="Assets/Scripts/IPreserveState.cs" />
      <Compile Include="Assets/Scripts/PlayerMove.cs" />
      <Compile Include="Assets/Scripts/StateCache.cs" />
      <Compile Include="Assets/Scripts/Scenes.cs" />
      <Compile Include="Assets/Scripts/FollowTarget.cs" />
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
-     <Compile Include="Assets/Scripts/ResumeGame.cs" />
-     <Compile Include="Assets/Scripts/PauseGame.cs" />
-     <Compile Include="Assets/Scripts/PreserveState.cs" />
+     <Compile Include="Assets/Scripts/SaveGame.cs" />
+     <Compile Include="Assets/Scripts/SaveDataWriter.cs" />
+     <Compile Include="Assets/Scripts/SaveDataHandler.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
