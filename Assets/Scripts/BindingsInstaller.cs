@@ -5,9 +5,7 @@ public class BindingsInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Debug.Log("Install bindings...");
-
-        Container.Bind<StateCache>()
-            .AsSingle();
+        Container.Bind<StateCache>().AsSingle();
+        Container.Bind<SceneSwitcher>().AsSingle();
     }
 }
