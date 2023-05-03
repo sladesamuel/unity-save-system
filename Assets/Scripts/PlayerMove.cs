@@ -7,7 +7,7 @@ public struct PlayerState
     public Vector3 position;
 }
 
-public class PlayerMove : MonoBehaviour, ICacheable<PlayerState>
+public class PlayerMove : MonoBehaviour, IPreserveState<PlayerState>
 {
     private const float Speed = 3f;
 
@@ -16,18 +16,26 @@ public class PlayerMove : MonoBehaviour, ICacheable<PlayerState>
     [Inject]
     public StateCache stateCache;
 
-    string ICacheable<PlayerState>.ObjectId => name;
+    public string ObjectId => name;
 
-    PlayerState ICacheable<PlayerState>.GetState() =>
+    public PlayerState GetState() =>
         new PlayerState
         {
             position = transform.position
         };
 
-    void ICacheable<PlayerState>.LoadState(PlayerState state) =>
+    public void LoadState(object state) => LoadState((PlayerState)state);
+
+    public void LoadState(PlayerState state) =>
         transform.position = state.position;
 
     void Awake() => stateCache.Load(this);
+
+    object IPreserveState.GetState()
+    {
+        throw new System.NotImplementedException();
+    }
+
     void OnDestroy() => stateCache.Store(this);
 
     void Update()

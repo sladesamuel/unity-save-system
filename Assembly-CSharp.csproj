@@ -39,7 +39,7 @@
      <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
      <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
      <Compile Include="Assets/Scripts/StartPoint.cs" />
-     <Compile Include="Assets/Scripts/ICacheable.cs" />
+     <Compile Include="Assets/Scripts/IPreserveState.cs" />
      <Compile Include="Assets/Scripts/PlayerMove.cs" />
      <Compile Include="Assets/Scripts/StateCache.cs" />
      <Compile Include="Assets/Scripts/Scenes.cs" />

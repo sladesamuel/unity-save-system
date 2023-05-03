@@ -23,7 +23,6 @@ public class TeleportPlayer : MonoBehaviour
         var player = FindObjectOfType<PlayerMove>();
         var startPoint = FindObjectOfType<StartPoint>();
 
-        Debug.Log("Update player position");
         player.transform.position = startPoint.transform.position;
 
         Destroy(gameObject);
