@@ -47,6 +47,7 @@
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
      <Compile Include="Assets/Scripts/ResumeGame.cs" />
      <Compile Include="Assets/Scripts/PauseGame.cs" />
+     <Compile Include="Assets/Scripts/PreserveState.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

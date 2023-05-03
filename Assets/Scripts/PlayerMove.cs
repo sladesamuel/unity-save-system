@@ -13,10 +13,9 @@ public class PlayerMove : MonoBehaviour, IPreserveState<PlayerState>
 
     public Text playerPositionText;
 
-    [Inject]
-    public StateCache stateCache;
-
     public string ObjectId => name;
+
+    object IPreserveState.GetState() => GetState();
 
     public PlayerState GetState() =>
         new PlayerState
@@ -28,15 +27,6 @@ public class PlayerMove : MonoBehaviour, IPreserveState<PlayerState>
 
     public void LoadState(PlayerState state) =>
         transform.position = state.position;
-
-    void Awake() => stateCache.Load(this);
-
-    object IPreserveState.GetState()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    void OnDestroy() => stateCache.Store(this);
 
     void Update()
     {
