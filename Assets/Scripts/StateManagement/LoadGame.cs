@@ -4,7 +4,7 @@ using Zenject;
 public class LoadGame : MonoBehaviour
 {
     [Inject]
-    public SaveDataReader reader;
+    public ISaveDataReader reader;
 
     public GameLoader loader;
 

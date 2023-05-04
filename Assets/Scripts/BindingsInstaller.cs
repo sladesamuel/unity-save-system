@@ -1,4 +1,3 @@
-using UnityEngine;
 using Zenject;
 
 public class BindingsInstaller : MonoInstaller
@@ -7,7 +6,13 @@ public class BindingsInstaller : MonoInstaller
     {
         Container.Bind<StateCache>().AsSingle();
         Container.Bind<SceneSwitcher>().AsSingle();
-        Container.Bind<SaveDataWriter>().AsTransient();
-        Container.Bind<SaveDataReader>().AsTransient();
+
+        Container.Bind<ISaveDataWriter>()
+            .To<JsonSaveDataWriter>()
+            .AsTransient();
+
+        Container.Bind<ISaveDataReader>()
+            .To<JsonSaveDataReader>()
+            .AsTransient();
     }
 }

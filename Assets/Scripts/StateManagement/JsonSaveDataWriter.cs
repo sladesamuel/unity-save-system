@@ -1,7 +1,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-public class SaveDataWriter : SaveDataHandler
+public class JsonSaveDataWriter : SaveDataHandler, ISaveDataWriter
 {
     public void Write(SaveData data)
     {

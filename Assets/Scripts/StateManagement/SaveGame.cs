@@ -10,7 +10,7 @@ public class SaveGame : MonoBehaviour
     public StateCache cache;
 
     [Inject]
-    public SaveDataWriter writer;
+    public ISaveDataWriter writer;
 
     public void Save()
     {

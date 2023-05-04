@@ -1,7 +1,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-public class SaveDataReader : SaveDataHandler
+public class JsonSaveDataReader : SaveDataHandler, ISaveDataReader
 {
     public SaveData Read()
     {
