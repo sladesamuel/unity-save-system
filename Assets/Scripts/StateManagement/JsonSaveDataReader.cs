@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using UnityEngine;
 
 public class JsonSaveDataReader : SaveDataHandler, ISaveDataReader
 {
@@ -25,25 +24,23 @@ public class JsonSaveDataReader : SaveDataHandler, ISaveDataReader
 
     private static void InstantiateGameDataTypes(SaveData saveData)
     {
-        var entries = new Dictionary<string, GameData>(saveData.data);
+        var entries = new Dictionary<string, GameData>();
 
         foreach (var entry in saveData.data)
         {
             var data = InstantiateGameData(entry.Value);
-            Debug.Log($"Resulting data type: {data.GetType().FullName}");
             entries[entry.Key] = new GameData
             {
                 dataTypeName = entry.Value.dataTypeName,
                 data = data
             };
         }
+
+        saveData.data = entries;
     }
 
     private static object InstantiateGameData(GameData gameData)
     {
-        Debug.Log($"Instantiating {gameData.dataTypeName}...");
-        Debug.Log(gameData.data.ToString());
-
         var type = Type.GetType(gameData.dataTypeName);
         var jsonObject = (JObject)gameData.data;
 
