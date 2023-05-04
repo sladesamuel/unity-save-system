@@ -24,9 +24,7 @@ public class PlayerMove : MonoBehaviour, IPreserveState<PlayerState>
         };
 
     public void LoadState(object state) => LoadState((PlayerState)state);
-
-    public void LoadState(PlayerState state) =>
-        transform.position = state.position;
+    public void LoadState(PlayerState state) => transform.position = state.position;
 
     void Update()
     {

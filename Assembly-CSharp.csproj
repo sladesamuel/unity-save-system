@@ -36,12 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/SaveDataHandler.cs" />
      <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
+     <Compile Include="Assets/Scripts/SaveDataReader.cs" />
      <Compile Include="Assets/Scripts/BindingsInstaller.cs" />
      <Compile Include="Assets/Scripts/PreserveState.cs" />
      <Compile Include="Assets/Scripts/SaveData.cs" />
      <Compile Include="Assets/Scripts/ResumeGame.cs" />
+     <Compile Include="Assets/Scripts/SaveDataWriter.cs" />
      <Compile Include="Assets/Scripts/StartPoint.cs" />
+     <Compile Include="Assets/Scripts/LoadGame.cs" />
      <Compile Include="Assets/Scripts/PauseGame.cs" />
      <Compile Include="Assets/Scripts/IPreserveState.cs" />
      <Compile Include="Assets/Scripts/PlayerMove.cs" />
@@ -50,10 +54,7 @@
      <Compile Include="Assets/Scripts/FollowTarget.cs" />
      <Compile Include="Assets/Scripts/TeleportPlayer.cs" />
      <Compile Include="Assets/Scripts/SaveGame.cs" />
-     <Compile Include="Assets/Scripts/SaveDataWriter.cs" />
-     <Compile Include="Assets/Scripts/SaveDataHandler.cs" />
-     <Compile Include="Assets/Scripts/SaveDataReader.cs" />
-     <Compile Include="Assets/Scripts/LoadGame.cs" />
+     <Compile Include="Assets/Scripts/GameLoader.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/samuelslade/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -813,14 +814,14 @@
     <Reference Include="Unity.2D.Common.Editor">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json.UnityConverters">
+        <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Newtonsoft.Json.UnityConverters.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json.UnityConverters">
-        <HintPath>/home/samuelslade/source/misc/unity-save-system/Library/ScriptAssemblies/Newtonsoft.Json.UnityConverters.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
