@@ -2,14 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+[Serializable]
+public class GameData
+{
+    public string dataTypeName;
+    public object data;
+}
+
 public class StateCache
 {
-    private readonly Dictionary<string, object> cache =
-        new Dictionary<string, object>(StringComparer.Ordinal);
+    private readonly Dictionary<string, GameData> cache =
+        new Dictionary<string, GameData>(StringComparer.Ordinal);
 
-    public IReadOnlyCollection<KeyValuePair<string, object>> GetAllCacheEntries() => cache.ToArray();
+    public IReadOnlyCollection<KeyValuePair<string, GameData>> GetAllCacheEntries() => cache.ToArray();
 
-    public void PreloadCache(IEnumerable<KeyValuePair<string, object>> entries)
+    public void PreloadCache(IEnumerable<KeyValuePair<string, GameData>> entries)
     {
         cache.Clear();
 
@@ -21,7 +28,12 @@ public class StateCache
 
     public void Store(IPreserveState instance)
     {
-        cache[instance.ObjectId] = instance.GetState();
+        var state = instance.GetState();
+        cache[instance.ObjectId] = new GameData
+        {
+            dataTypeName = state.GetType().FullName,
+            data = state
+        };
     }
 
     public void Store<TState>(IPreserveState<TState> instance)
@@ -31,17 +43,17 @@ public class StateCache
 
     public void Load<TState>(IPreserveState<TState> instance)
     {
-        if (cache.TryGetValue(instance.ObjectId, out object state))
+        if (cache.TryGetValue(instance.ObjectId, out var entry))
         {
-            instance.LoadState((TState)state);
+            instance.LoadState((TState)entry.data);
         }
     }
 
     public void Load(IPreserveState instance)
     {
-        if (cache.TryGetValue(instance.ObjectId, out object state))
+        if (cache.TryGetValue(instance.ObjectId, out var entry))
         {
-            instance.LoadState(state);
+            instance.LoadState(entry.data);
         }
     }
 }

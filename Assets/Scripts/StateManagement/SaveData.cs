@@ -5,5 +5,5 @@ using System.Collections.Generic;
 public class SaveData
 {
     public string sceneName;
-    public Dictionary<string, object> data;
+    public Dictionary<string, GameData> data;
 }

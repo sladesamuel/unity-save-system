@@ -23,17 +23,22 @@ public class SaveGame : MonoBehaviour
         writer.Write(data);
     }
 
-    private Dictionary<string, object> CollectAllStateEntries()
+    private Dictionary<string, GameData> CollectAllStateEntries()
     {
         var cachedEntries = cache.GetAllCacheEntries();
         var activeInstances = FindObjectsOfType<MonoBehaviour>()
             .OfType<IPreserveState>();
 
-        var allStateEntries = new Dictionary<string, object>(cachedEntries);
+        var allStateEntries = new Dictionary<string, GameData>(cachedEntries);
         foreach (var instance in activeInstances)
         {
             // Make sure we overwrite any cached state with the latest active state
-            allStateEntries[instance.ObjectId] = instance.GetState();
+            var state = instance.GetState();
+            allStateEntries[instance.ObjectId] = new GameData
+            {
+                dataTypeName = state.GetType().FullName,
+                data = state
+            };
         }
 
         return allStateEntries;
